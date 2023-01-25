@@ -1,0 +1,20 @@
+{
+  "name": "sample-download-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leopinnheiro/sample-download-files.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Pinheiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leopinnheiro/sample-download-files/issues"
+  },
+  "homepage": "https://github.com/leopinnheiro/sample-download-files#readme"
+}
