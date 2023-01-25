@@ -1,11 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 
+const outputDir = path.join(__dirname, '..', 'out')
+
 function createSampleFile(sizeInMB) {
   const filename = generateName(sizeInMB);
   console.log(`Generating ${filename}`);
 
-  const fp = fs.openSync(path.join(__dirname, '..', 'sample', filename), "w");
+  const fp = fs.openSync(path.join(outputDir, filename), "w");
 
   for (let i = 0; i < sizeInMB; i++) {
     process.stdout.write(`\rWrite ${i+1}MB`);
@@ -29,6 +31,19 @@ function generateName(sizeInMB) {
   return `${sizeInMB}MB.bin`
 }
 
+function createOutFolder() {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+}
+
+function clearOutFolder() {
+  console.log(`Clear ${outputDir}`);
+  fs.readdirSync(outputDir).forEach(f => fs.rmSync(`${outputDir}/${f}`));
+}
+
+createOutFolder();
+clearOutFolder();
 createSampleFile(5);
 createSampleFile(10);
 createSampleFile(50);
